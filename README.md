@@ -1,27 +1,19 @@
-### Termos de acordos
+# Boas vindas ao processo seletivo para o Pessoa Instrutora de Fundamentos!
 
-Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e Conduta e do Manual da Pessoa Estudante da Trybe.
-
-# Boas vindas ao repositório do projeto de Carrinho de Compras!
-
-Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
-
-Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir desse repositório, utilizando uma branch específica e um _Pull Request_ para colocar seus códigos.
+Aqui você vai encontrar os detalhes de como desenvolver seu projeto a partir deste repositório, utilizando uma branch específica e um _Pull Request_ para colocar seus códigos. Clone este repositório, abra uma branch sua e crie uma Pull Request a partir dela. O nosso **avaliador automatizado** irá rodar nela através da integração com o GitHub e será importante para a análise da sua entrega.
 
 ---
 
 ## SUMÁRIO
 
-- [Habilidades](#habilidades)
 - [Entregáveis](#entregáveis)
   - [O que será desenvolvido](#o-que-será-desenvolvido)
-    - [Protótipo do projeto](#protótipo-do-projeto)
+  - [Desenvolvimento](#desenvolvimento)
 - [Data de entrega](#data-de-entrega)
-- [Desenvolvimento](#desenvolvimento)
-  - [Antes de começar a desenvolver](#antes-de-começar-a-desenvolver)
-  - [Durante o desenvolvimento](#durante-o-desenvolvimento)
-  - [ESLint e Stylelint](#eslint-e-stylelint)
+- [Avaliação automática](#avaliacao-automatica)
+  - [Linters](#linters)
   - [Cypress](#cypress)
+- [Instruções de início](#instruções-de-inicio)
 - [Requisitos do projeto](#requisitos-do-projeto)
   - [API Shopping Cart](#api-shopping-cart)
   - [Observações técnicas](#observações-técnicas)
@@ -32,37 +24,24 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
   - [5. Some o valor total dos itens do carrinho de compras](#5-some-o-valor-total-dos-itens-do-carrinho-de-compras)
   - [6. Crie um botão para limpar carrinho de compras](#6-crie-um-botão-para-limpar-carrinho-de-compras)
   - [7. Adicione um texto de "loading" durante uma requisição à API](#7-adicione-um-texto-de-loading-durante-uma-requisição-à-api)
-- [Depois de terminar o desenvolvimento (opcional)](#depois-de-terminar-o-desenvolvimento-opcional)
-- [Revisando um Pull Request](#revisando-um-pull-request)
-- [Avisos finais](#avisos-finais)
-
----
-
-## Habilidades
-
-Nesse projeto, você será capaz de:
-
-- Fazer requisições a uma API *(Application Programming Interface)* do Mercado Livre;
-- Utilizar os seus conhecimentos sobre JavaScript, CSS e HTML;
-- Trabalhar com funções assíncronas;
 
 ---
 
 # Entregáveis
 
-Para entregar o seu projeto você deverá criar um Pull Request neste repositório.
-
-Lembre-se que você pode consultar nosso conteúdo sobre [Git & GitHub](https://app.betrybe.com/course/fundamentals/git) sempre que precisar!
-
 ## O que será desenvolvido
 
-Nesse projeto vocês farão um **carrinho de compras** totalmente dinâmico! E o melhor: consumindo dados diretamente de uma **API!** Isso mesmo. Da sigla em inglês _Application Programming Interface_, uma API é um ponto de contato na internet com determinado serviço. Através de **requisições HTTP** a essa API é possível interagir com ela da forma como quem a criou planejou. Aqui usaremos a API do Mercado Livre para buscarmos produtos à venda.
-
-### Protótipo do projeto
+Nesse projeto você fará um **carrinho de compras** totalmente dinâmico. Aqui usaremos a API do Mercado Livre para buscarmos produtos à venda.
 
 Seu projeto deve ter o comportamento parecido com o do gif abaixo quando finalizado, **não se preocupe em replicar o visual, o gif so ilustra o comportamento**:
 
 ![Project Gif](./out.gif)
+
+## Desenvolvimento
+
+⚠️ É importante que seus arquivos tenham exatamente estes nomes! ⚠️
+
+O seu Pull Request deverá conter os arquivos `index.html`, `style.css` e `script.js`, que conterão seu código HTML, CSS e JavaScript, respectivamente. Caso você faça o download de bibliotecas externas, utilize o diretório `libs` (a partir da raiz do projeto) para colocar os arquivos (*.css, *.js, etc...) baixados.
 
 ---
 
@@ -72,102 +51,23 @@ Seu projeto deve ter o comportamento parecido com o do gif abaixo quando finaliz
   - Serão `X` dias de projeto.
   - Data de entrega para avaliação final do projeto: `DD/MM/YYYY - 14:00h`.
 
----
-
-# Desenvolvimento
-
-⚠️ É importante que seus arquivos tenham exatamente estes nomes! ⚠️
-
-O seu Pull Request deverá conter os arquivos `index.html`, `style.css` e `script.js`, que conterão seu código HTML, CSS e JavaScript, respectivamente.
-
-Caso você faça o download de bibliotecas externas, utilize o diretório `libs` (a partir da raiz do projeto) para colocar os arquivos (*.css, *.js, etc...) baixados.
-
-Você pode adicionar outros arquivos se julgar necessário. Qualquer dúvida, procure a monitoria.
-
-## Antes de começar a desenvolver:
-
-1. Clone o repositório
-  * `git clone git@github.com:tryber/sd-0x-project-shopping-cart.git`.
-  * Entre na pasta do repositório que você acabou de clonar:
-    * `cd sd-0x-project-shopping-cart`
-
-2. Instale as dependências e inicialize o projeto
-  * Instale as dependências:
-    * `npm install`
-
-3. Crie uma branch a partir da branch `master`
-  * Verifique que você está na branch `master`
-    * Exemplo: `git branch`
-  * Se não estiver, mude para a branch `master`
-    * Exemplo: `git checkout master`
-  * Agora, crie uma branch onde você vai guardar os `commits` do seu projeto
-    * Você deve criar uma branch no seguinte formato: `nome-sobrenome-nome-do-projeto`
-    * Exemplo: `git checkout -b maria-silva-shopping-cart`
-
-4. Quando fizer mudanças, adicione-as ao _stage_ do Git e faça um `commit`
-  * Verifique que as mudanças ainda não estão no _stage_
-    * Exemplo: `git status` (devem aparecer listados os novos arquivos em vermelho)
-  * Adicione o novo arquivo ao _stage_ do Git
-      * Exemplo:
-        * `git add .` (adicionando todas as mudanças - _que estavam em vermelho_ - ao stage do Git)
-        * `git status` (devem aparecer listados os arquivos em verde)
-  * Faça o `commit` inicial
-      * Exemplo:
-        * `git commit -m 'iniciando o projeto. VAMOS COM TUDO :rocket:'` (fazendo o primeiro commit)
-        * `git status` (deve aparecer uma mensagem tipo _nothing to commit_ )
-
-5. Adicione a sua branch com o novo `commit` ao repositório remoto
-  * Usando o exemplo anterior: `git push -u origin maria-silva-shopping-cart`
-
-6. Crie um novo `Pull Request` _(PR)_
-  * Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-0x-project-shopping-cart/pulls)
-  * Clique no botão verde _"New pull request"_
-  * Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
-  * Clique no botão verde _"Create pull request"_
-  * Adicione uma descrição para o _Pull Request_, um título claro que o identifique, e clique no botão verde _"Create pull request"_
-  * **Não se preocupe em preencher mais nada por enquanto!**
-  * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-0x-project-shopping-cart/pulls) e confira que o seu _Pull Request_ está criado
 
 ---
 
-## Durante o desenvolvimento
+# Avaliação automática
 
-* Faça `commits` das alterações que você fizer no código regularmente;
+### Atenção!
 
-* Lembre-se de sempre após um ~~(ou alguns)~~ `commits` atualizar o repositório remoto (o famoso `git push`);
+## Linters
 
-* Os comandos que você utilizará com mais frequência são:
-
-  1. `git status` _(para verificar o que está em vermelho - fora do stage - e o que está em verde - no stage)_;
-
-  2. `git add` _(para adicionar arquivos ao stage do Git)_;
-
-  3. `git commit` _(para criar um commit com os arquivos que estão no stage do Git)_;
-
-  4. `git push -u nome-da-branch` _(para enviar o commit para o repositório remoto na primeira vez que fizer o `push` de uma nova branch)_;
-
-  5. `git push` _(para enviar o commit para o repositório remoto após o passo anterior)_.
-
----
-
-### ESLint e Stylelint
-
-Para garantir a qualidade do código, vamos utilizar neste projeto os linters `ESLint` e `Stylelint`.
-Assim o código estará alinhado com as boas práticas de desenvolvimento, sendo mais legível
-e de fácil manutenção! Para rodá-los localmente no projeto, execute os comandos abaixo:
+O projeto já contém testes e linters configurados. É essencial que **você obtenha 100% de aprovação no projeto, incluindo requisitos bônus, sem problemas de linter**. Beleza?! Obter aprovação nos testes e no linter é condição essencial para a análise do projeto, **mas é importante que a qualidade do seu código vá além disso!** Observaremos legibilidade do código, estrutura da aplicação, domínio de bons conceitos da linguagem, domínio de CSS. Utilize o projeto para nos mostrar o seu melhor!
 
 ```bash
   npm run lint
   npm run lint:styles
 ```
 
-Em caso de dúvidas, confira o material do course sobre [ESLint e Stylelint](https://app.betrybe.com/course/real-life-engineer/eslint).
-
-⚠️ Lembre-se que o seu projeto só será avaliado se estiver passando pelos _checks_ do **linter**.
-
----
-
-### Cypress
+## Cypress
 
 Cypress é uma ferramenta de teste de front-end desenvolvida para a web.
 Você pode rodar o cypress localmente para verificar se seus requisitos estão passando, para isso execute um dos seguintes comandos:
@@ -198,6 +98,30 @@ Você também pode assistir a [este](https://vimeo.com/539240375/a116a166b9) ví
 
 ---
 
+# Instruções de início
+
+## Antes de começar a desenvolver
+
+1. Após clonar e acessar o repositório, instale as dependências e inicialize o projeto
+  * Instale as dependências:
+    * `npm install`
+  * Inicialize o projeto:
+    * `npm start` (uma nova página deve abrir no seu navegador com um texto simples)
+  * Verifique que os testes estão executando:
+    * `npm test` (os testes devem rodar e falhar)
+
+2. Crie uma branch a partir da branch `master` e mãos à obra!
+
+---
+
+## Durante o desenvolvimento
+
+* Faça `commits` **bem estruturados** das alterações que você fizer no código regularmente
+
+* Lembre-se de sempre após um (ou alguns) `commits` atualizar o repositório remoto
+
+---
+
 # Requisitos do projeto
 
 ## API Shopping Cart
@@ -206,7 +130,7 @@ O [manual da API do Mercado Livre](https://developers.mercadolivre.com.br/pt_br/
 
 ## Observações técnicas
 
-A seguir, estão listados como será a avaliação do seu projeto e todos os requisitos que devem ser cumpridos. Leia-os atentamente e siga à risca o que for pedido. Em particular, **atente-se para os nomes de classes que alguns elementos de seu projeto devem possuir**. O não cumprimento de um requisito, total ou parcialmente, impactará em sua avaliação.
+A seguir, estão listados como será a avaliação do seu projeto e todos os requisitos que devem ser cumpridos. Leia-os atentamente e siga à risca o que for pedido. Em particular, **atente-se para os nomes de classes que alguns elementos de seu projeto devem possuir**.
 
 ### 1. Crie uma listagem de produtos
 
@@ -486,35 +410,3 @@ Crie um botão para remover todos os itens do carrinho de compras. Ele deve, **o
 Uma requisição à API gasta um tempo e durante ele, ficamos sem saber se está tudo certo ou se algo deu errado.
 Normalmente é utilizada alguma forma para mostrar que a requisição está em andamento.
 Mostre a palavra "loading..." em algum lugar da página **apenas durante** a requisição à API. O elemento mostrado durante o carregamento da página deve, **obrigatóriamente**, ter a classe `loading`.
-
----
-
-## Depois de terminar o desenvolvimento
-
-Para sinalizar que o seu projeto está pronto para o _"Code Review"_ dos seus colegas, faça o seguinte:
-
-* Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque seus colegas:
-
-  * No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**;
-
-  * No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**;
-
-  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-00`.
-
-Caso tenha alguma dúvida, [aqui tem um video explicativo](https://vimeo.com/362189205).
-
----
-
-## Revisando um pull request
-
-Use o conteúdo sobre [Code Review](https://course.betrybe.com/real-life-engineer/code-review/) para te ajudar a revisar os _Pull Requests_.
-
----
-
-# Avisos finais
-
-Ao finalizar e submeter o projeto, não se esqueça de avaliar sua experiência preenchendo o formulário. Leva menos de 3 minutos!
-
-Link: [FORMULÁRIO DE AVALIAÇÃO DE PROJETO](https://be-trybe.typeform.com/to/ZTeR4IbH)
-
-O avaliador automático não necessariamente avalia seu projeto na ordem em que os requisitos aparecem no readme. Isso acontece para deixar o processo de avaliação mais rápido. Então, não se assuste se isso acontecer, ok?
