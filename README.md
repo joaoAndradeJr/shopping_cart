@@ -1,4 +1,4 @@
-# Boas vindas ao processo seletivo para o Pessoa Instrutora de Fundamentos!
+# Boas vindas ao processo seletivo para o Time de Instrução de Fundamentos!
 
 Aqui você vai encontrar os detalhes de como desenvolver seu projeto a partir deste repositório, utilizando uma branch específica e um _Pull Request_ para colocar seus códigos. Clone este repositório, abra uma branch sua e crie uma Pull Request a partir dela. O nosso **avaliador automatizado** irá rodar nela através da integração com o GitHub e será importante para a análise da sua entrega.
 
