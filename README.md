@@ -45,12 +45,6 @@ O seu Pull Request deverá conter os arquivos `index.html`, `style.css` e `scrip
 
 ---
 
-# Data de entrega
-
-  - Data de entrega para avaliação final do projeto: `DD/MM/YYYY - 14:00h`.
-
----
-
 # Avaliação automática
 
 ### Atenção!
