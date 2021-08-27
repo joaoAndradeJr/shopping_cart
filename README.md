@@ -49,8 +49,7 @@ O seu Pull Request deverá conter os arquivos `index.html`, `style.css` e `scrip
 
 ### Atenção!
 
-Para a avaliação automática ser executada no seu projeto, é necessário **que não existam erros de Linters**.
-
+O projeto já contém testes e linters configurados. É essencial que **você obtenha 100% de aprovação no projeto, incluindo requisitos bônus, sem problemas de linter**. Beleza?! Obter aprovação nos testes e no linter é condição essencial para a análise do projeto, **mas é importante que a qualidade do seu código vá além disso!** Observaremos legibilidade do código, estrutura da aplicação, domínio de bons conceitos da linguagem, domínio de CSS. Utilize o projeto para nos mostrar o seu melhor!
 
 ## Linters
 
