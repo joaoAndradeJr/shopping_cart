@@ -9,7 +9,6 @@ Aqui você vai encontrar os detalhes de como desenvolver seu projeto a partir de
 - [Entregáveis](#entregáveis)
   - [O que será desenvolvido](#o-que-será-desenvolvido)
   - [Desenvolvimento](#desenvolvimento)
-- [Data de entrega](#data-de-entrega)
 - [Avaliação automática](#avaliacao-automatica)
   - [Linters](#linters)
   - [Cypress](#cypress)
