@@ -45,11 +45,16 @@ function createProductItemElement({ sku, name, image }) {
   return section;
 }
 
+function cartItemClickListener({ target }) {
+  target.remove();
+}
+
 function createCartItemElement({ sku, name, salePrice }) {
   const li = document.createElement('li');
   li.className = 'cart__item';
   li.innerText = `SKU: ${sku} | NAME: ${name} | PRICE: $${salePrice}`;
   li.dataset.sku = sku;
+  li.addEventListener('click', (event) => cartItemClickListener(event));
   return li;
 }
 
