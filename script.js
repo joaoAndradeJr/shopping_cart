@@ -1,8 +1,8 @@
-async function searchProducts(url) {
+async function searchProducts() {
   try {
+    const url = 'https://api.mercadolibre.com/sites/MLB/search?q=$computador';
     const data = await fetch(url);
     const products = await data.json();
-    if (!products) return []; 
     return products.results;
   } catch (error) {
     console.log('Error: ', error.message);
@@ -14,7 +14,6 @@ async function productDetails(id) {
     const url = `https://api.mercadolibre.com/items/${id}`;
     const data = await fetch(url);
     const product = await data.json();
-    if (!product) return {}; 
     return product;
   } catch (error) {
     console.log('Error: ', error.message);
@@ -58,28 +57,40 @@ function createCartItemElement({ sku, name, salePrice }) {
   return li;
 }
 
+function addInLocalStorage(item) {
+  const cartInLS = JSON.parse(localStorage.getItem('cart'));
+  if (!cartInLS) {
+    const cart = [item];
+    localStorage.setItem('cart', JSON.stringify(cart));
+  } else {
+    cartInLS.push(item);
+    localStorage.setItem('cart', JSON.stringify(cartInLS));
+  }
+}
+
 async function addItemToCart(id) {
   const data = await productDetails(id);
   const { id: sku, title: name, price: salePrice } = data;
-  const finalItem = createCartItemElement({ sku, name, salePrice });
+  const mountedItem = createCartItemElement({ sku, name, salePrice });
   const selected = document.querySelector('.cart__items');
-  selected.appendChild(finalItem);
+  selected.appendChild(mountedItem);
+  addInLocalStorage(sku);
 }
 
 function showProduct(product) {
   const section = document.getElementsByClassName('items')[0];
-  const id = product.firstChild.innerHTML;
-  product.lastChild.addEventListener('click', () => addItemToCart(id));
+  const productId = product.firstChild.innerText;
+  product.lastChild.addEventListener('click', () => addItemToCart(productId));
   section.appendChild(product);
 }
 
 async function getProductsList() {
-  const url = 'https://api.mercadolibre.com/sites/MLB/search?q=$computador';
-  const productsList = await searchProducts(url);
+  const productsList = await searchProducts();
 
   productsList.forEach((product) => {
     const productInfo = { sku: product.id, name: product.title, image: product.thumbnail };
-    showProduct(createProductItemElement(productInfo));
+    const mountedProduct = createProductItemElement(productInfo);
+    showProduct(mountedProduct);
   });
 }
 
