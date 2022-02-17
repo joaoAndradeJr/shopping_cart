@@ -1,8 +1,28 @@
+function setIsLoadingOn() {
+  const bodyDisplay = document.getElementsByTagName('body')[0];
+
+  const div = document.createElement('div');
+  div.setAttribute('class', 'loading');
+  div.innerHTML = 'Loading...';
+
+  bodyDisplay.appendChild(div);
+
+  bodyDisplay.style.display = 'none';
+}
+
+function setIsLoadingOff() {
+  const bodyDisplay = document.getElementsByTagName('body')[0];
+  bodyDisplay.lastChild.remove();
+  bodyDisplay.style.display = 'flex';
+}
+
 async function searchProducts() {
   try {
+    setIsLoadingOn();
     const url = 'https://api.mercadolibre.com/sites/MLB/search?q=$computador';
     const data = await fetch(url);
     const products = await data.json();
+    setIsLoadingOff();
     return products.results;
   } catch (error) {
     console.log('Error: ', error.message);
@@ -11,9 +31,11 @@ async function searchProducts() {
 
 async function productDetails(id) {
   try {
+    setIsLoadingOn();
     const url = `https://api.mercadolibre.com/items/${id}`;
     const data = await fetch(url);
     const product = await data.json();
+    setIsLoadingOff();
     return product;
   } catch (error) {
     console.log('Error: ', error.message);
