@@ -44,8 +44,30 @@ function createProductItemElement({ sku, name, image }) {
   return section;
 }
 
-function cartItemClickListener({ target }) {
+function removeProductFromLocalStorage(id) {
+  const cartInLS = JSON.parse(localStorage.getItem('cart'));
+  const updatedCart = cartInLS.filter((element) => element !== id);
+  localStorage.setItem('cart', JSON.stringify(updatedCart));
+}
+
+function removeItemFromCart({ target }) {
+  const id = target.innerHTML.split(' ')[1];
   target.remove();
+  removeProductFromLocalStorage(id);
+}
+
+function addInLocalStorage(item) {
+  const cartInLS = JSON.parse(localStorage.getItem('cart'));
+  if (!cartInLS || cartInLS.lenght === 0) {
+    const cart = [item];
+    localStorage.setItem('cart', JSON.stringify(cart));
+  } else {
+    const alreadyInLS = cartInLS.find((element) => element === item);
+    if (!alreadyInLS) {
+      cartInLS.push(item);
+      localStorage.setItem('cart', JSON.stringify(cartInLS));
+    }
+  }
 }
 
 function createCartItemElement({ sku, name, salePrice }) {
@@ -53,19 +75,8 @@ function createCartItemElement({ sku, name, salePrice }) {
   li.className = 'cart__item';
   li.innerText = `SKU: ${sku} | NAME: ${name} | PRICE: $${salePrice}`;
   li.dataset.sku = sku;
-  li.addEventListener('click', (event) => cartItemClickListener(event));
+  li.addEventListener('click', (event) => removeItemFromCart(event));
   return li;
-}
-
-function addInLocalStorage(item) {
-  const cartInLS = JSON.parse(localStorage.getItem('cart'));
-  if (!cartInLS) {
-    const cart = [item];
-    localStorage.setItem('cart', JSON.stringify(cart));
-  } else {
-    cartInLS.push(item);
-    localStorage.setItem('cart', JSON.stringify(cartInLS));
-  }
 }
 
 async function addItemToCart(id) {
@@ -75,6 +86,13 @@ async function addItemToCart(id) {
   const selected = document.querySelector('.cart__items');
   selected.appendChild(mountedItem);
   addInLocalStorage(sku);
+}
+
+function getProductsFromLocalStorage() {
+  const cart = JSON.parse(localStorage.getItem('cart'));
+  if (cart) {
+    cart.forEach(async (item) => addItemToCart(item));
+  }
 }
 
 function showProduct(product) {
@@ -92,6 +110,7 @@ async function getProductsList() {
     const mountedProduct = createProductItemElement(productInfo);
     showProduct(mountedProduct);
   });
+  getProductsFromLocalStorage();
 }
 
 window.onload = () => {
